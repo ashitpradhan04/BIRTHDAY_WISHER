@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: birthday-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - MAIL_USERNAME=${MAIL_USERNAME:-your-email@gmail.com}
+      - MAIL_PASSWORD=${MAIL_PASSWORD:-your-app-password}
+      - JWT_SECRET=${JWT_SECRET:-mySecretKeyForJWTTokenGeneration1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh}
+      - TWILIO_ENABLED=${TWILIO_ENABLED:-false}
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID:-}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN:-}
+      - TWILIO_PHONE_NUMBER=${TWILIO_PHONE_NUMBER:-}
+    volumes:
+      - birthday-data:/app/data
+    networks:
+      - birthday-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/api/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: birthday-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    networks:
+      - birthday-net
+    restart: unless-stopped
+
+volumes:
+  birthday-data:
+
+networks:
+  birthday-net:
+    driver: bridge
