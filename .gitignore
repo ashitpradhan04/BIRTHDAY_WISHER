@@ -1,0 +1,21 @@
+# Java / Maven
+backend/target/
+*.class
+*.jar
+
+# Node / Angular
+frontend/node_modules/
+frontend/dist/
+
+# Secrets — NEVER commit these
+.env
+*.env
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Database files
+*.db
+data/
