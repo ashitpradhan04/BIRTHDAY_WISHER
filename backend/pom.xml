@@ -49,11 +49,16 @@
         </dependency>
 
         <!-- Database -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
-        </dependency>
+        </dependency>-->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
         <!-- Uncomment for PostgreSQL production use:
         <dependency>
             <groupId>org.postgresql</groupId>

@@ -1,8 +1,8 @@
 -- Demo admin account: admin@birthday.com / Admin@123
 -- Password hash for 'Admin@123' with BCrypt strength 12
-INSERT INTO users (first_name, last_name, email, password, phone_number, birthday, timezone, custom_message, notification_preference, role, active)
-SELECT 'Admin', 'User', 'admin@birthday.com',
-       '$2a$12$Vf7M9V8mTUuD2sZ3uYe7vOQxHKJcL5GbN1pRfZ0eYqW8T4mX6sA4u',
-       '+1234567890', '1990-01-15', 'UTC',
-       'Wishing you a wonderful birthday!', 'EMAIL', 'ADMIN', true
-WHERE NOT EXISTS (SELECT 1 FROM users WHERE email = 'admin@birthday.com');
+--INSERT INTO users (first_name, last_name, email, password, phone_number, birthday, timezone, custom_message, notification_preference, role, active)
+--SELECT 'Admin', 'User', 'admin@birthday.com',
+--       '$2a$12$Vf7M9V8mTUuD2sZ3uYe7vOQxHKJcL5GbN1pRfZ0eYqW8T4mX6sA4u',
+--       '+1234567890', '1990-01-15', 'UTC',
+--       'Wishing you a wonderful birthday!', 'EMAIL', 'ADMIN', true
+--WHERE NOT EXISTS (SELECT 1 FROM users WHERE email = 'admin@birthday.com');

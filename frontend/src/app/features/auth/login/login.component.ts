@@ -59,7 +59,7 @@ import { AuthService } from '../../../core/services/auth.service';
         </form>
 
         <div class="demo-hint">
-          <strong>Demo:</strong> admin@birthday.com / Admin@123
+          <strong>Demo:</strong> admin&#64;birthday.com / Admin&#64;123
         </div>
       </div>
     </div>
