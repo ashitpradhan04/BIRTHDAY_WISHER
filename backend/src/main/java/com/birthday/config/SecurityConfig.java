@@ -47,8 +47,15 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**", "/h2-console/**",
-                    "/swagger-ui/**", "/v3/api-docs/**", "/actuator/health").permitAll()
+                .requestMatchers("/auth/**",
+    "/swagger-ui/**",
+    "/swagger-ui.html",
+    "/swagger-ui/index.html",
+    "/v3/api-docs/**",
+    "/v3/api-docs",
+    "/swagger-resources/**",
+    "/webjars/**",
+    "/actuator/health").permitAll()
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()

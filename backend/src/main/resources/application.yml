@@ -87,3 +87,17 @@ logging:
     org.springframework.mail: DEBUG
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    
+    
+# Swagger
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    try-it-out-enabled: true
+    operations-sorter: method
+    display-request-duration: true
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  packages-to-scan: com.birthday.controller
